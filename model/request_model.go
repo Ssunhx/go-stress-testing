@@ -121,9 +121,9 @@ func (r *Request) GetVerifyWebSocket() VerifyWebSocket {
 // debug 是否开启debug
 // path curl文件路径 http接口压测，自定义参数设置
 func NewRequest(url string, verify string, timeout time.Duration, debug bool, path string, reqHeaders []string,
-	reqBody string, maxCon int, http2 bool, keepalive bool) (request *Request, err error) {
+	reqBody string, maxCon int, http2 bool, keepalive bool, requestMethod string) (request *Request, err error) {
 	var (
-		method  = "GET"
+		method  = requestMethod
 		headers = make(map[string]string)
 		body    string
 	)
